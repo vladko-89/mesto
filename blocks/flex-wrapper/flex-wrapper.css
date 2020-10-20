@@ -1,0 +1,5 @@
+.flex-wrapper {
+  width: 486px;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,13 @@
+.profile__link-edit {
+  margin-bottom: 20px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ffffff;
+}
+
+/*@media screen and (max-width: 900px) {
+  .profile__link-edit {
+    width: 18px;
+    height: 18px;
+  }
+}*/

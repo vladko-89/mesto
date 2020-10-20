@@ -16,12 +16,18 @@
     </header>
     <main class="main-index">
       <section class="profile">
-        <img src="./image/Avatar.png" alt="Аватар пользователя" class="avatar">
-        <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__specialization">Исследователь океана</p>
+        <div class="flex-wrapper">
+          <img src="./image/Avatar.png" alt="Аватар пользователя" class="profile__avatar">
+          <div>
+            <div class="profile__info">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <a href="#" class="profile__link-edit" aria-label="Редактировать профиль">
+                <img src="./image/Vector.svg" alt="" class="profile__vector">
+              </a>
+            </div>
+            <p class="profile__specialization">Исследователь океана</p>
+          </div>
         </div>
-        <a href="#" class="profile__link-edit" aria-label="Редактировать профиль"></a>
         <a href="" class="profile__link-new-card" aria-label="Добавить новую карточку"></a>
       </section>
       <section class="grid-container" aria-label="Блок с карточками">
