@@ -8,10 +8,9 @@
   color: #ffffff;
 }
 
-/*@media screen and (max-width: 900px) {
+@media screen and (max-width: 400px) {
   .profile__name {
     font-size: 27px;
     margin-bottom: 14px;
   }
 }
-*/

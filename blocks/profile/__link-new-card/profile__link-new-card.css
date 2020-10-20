@@ -5,6 +5,7 @@
   width: 150px;
   height: 50px;
   border: 1px solid #ffffff;
+  border-radius: 2px;
   box-sizing: border-box;
 }
 
@@ -21,4 +22,23 @@
 
 .profile__link-new-card::after {
   transform: rotate(90deg);
+}
+
+@media screen and (max-width: 750px) {
+  .profile__link-new-card {
+    width: 100%;
+  }
+  .profile__link-new-card::before,
+  .profile__link-new-card::after {
+    left: calc(50% - 11px);
+  }
+}
+
+.profile__link-new-card:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.profile__link-new-card:hover.profile__link-new-card::before,
+.profile__link-new-card:hover.profile__link-new-card::after {
+  background-color: rgba(255, 255, 255, 0.6);
 }

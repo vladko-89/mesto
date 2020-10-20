@@ -3,3 +3,10 @@
   display: flex;
   align-items: center;
 }
+
+@media screen and (max-width: 750px) {
+  .flex-wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+}

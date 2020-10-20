@@ -80,7 +80,7 @@
           <li class="cards__item">
             <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаево-Черкесск" class="cards__image">
             <div class="cards__container">
-              <h2 class="cards__title">Карачаево-Черкесск</h2>
+              <h2 class="cards__title">Карачаево-Черкессия</h2>
               <a href="#" class="cards__like">
                 <img src="./image/heart.svg" alt="" class="card__img-like">
               </a>
@@ -88,12 +88,30 @@
           </li>
         </ul>
       </section>
+      <div class="popup popup_hidden">
+        <div class="popup__overflow"></div>
+        <form action="http://echo.htmlacademy.ru" method="post" class="popup__body">
+          <fieldset class="popup__content">Редактировать профиль
+            <ul class="popup__list">
+              <li class="popup__item">
+                <input type="text" name="name" class="popup__input popup__input_item_name">
+              </li>
+              <li class="popup__item">
+                <input type="text" name="specialization" class="popup__input popup__input_item_specialization">
+
+              </li>
+            </ul>
+          </fieldset>
+          <button type="submit" class="popup__button-submit">Сохранить</button>
+          <button class="popup__button-close" aria-label="кнопка Закрыть"></button>
+        </form>
+      </div>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
     </main>
   </div>
-
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
