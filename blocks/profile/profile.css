@@ -1,5 +1,5 @@
 .profile {
-  margin-bottom: 50px;
+  margin-bottom: 54px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,5 +16,11 @@
   .profile {
     padding: 0;
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile {
+    margin-bottom: 36px;
   }
 }

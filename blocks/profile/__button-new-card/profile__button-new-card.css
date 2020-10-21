@@ -1,0 +1,52 @@
+.profile__button-new-card {
+  position: relative;
+  display: block;
+  padding: 14px 64px;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.profile__button-new-card::before,
+.profile__button-new-card::after {
+  position: absolute;
+  content: "";
+  top: 25px;
+  left: 64px;
+  width: 22px;
+  height: 2.5px;
+  background-color: #ffffff;
+}
+
+.profile__button-new-card::after {
+  transform: rotate(90deg);
+}
+
+.profile__button-new-card:hover,
+.profile__button-new-card:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+}
+
+.profile__button-new-card:hover.profile__button-new-card::before,
+.profile__button-new-card:hover.profile__button-new-card::after,
+.profile__button-new-card:focus.profile__button-new-card::before,
+.profile__button-new-card:focus.profile__button-new-card::after {
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+}
+
+@media screen and (max-width: 750px) {
+  .profile__button-new-card {
+    width: 100%;
+  }
+  .profile__button-new-card::before,
+  .profile__button-new-card::after {
+    width: 16px;
+    height: 2px;
+    left: calc(50% - 8px);
+  }
+}

@@ -1,12 +1,10 @@
 .profile__vector {
   width: 10px;
   display: block;
-  padding: 7px;
 }
 
-/*@media screen and (max-width: 900px) {
+@media screen and (max-width: 450px) {
   .profile__vector {
     width: 7.5px;
-    padding: 5.25px;
   }
-}*/
+}
