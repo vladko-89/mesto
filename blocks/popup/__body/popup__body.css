@@ -3,9 +3,9 @@
   z-index: 20;
   padding: 36px;
   width: 430px;
-  height: 330px;
   background-color: #ffffff;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 590px) {

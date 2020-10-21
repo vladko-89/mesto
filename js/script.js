@@ -1,30 +1,35 @@
-let profileEdit = document.querySelector('.profile__link-edit');
-let profileModal = document.querySelector('.popup');
-let profileName = document.querySelector('.profile__name');
-let profileSpecial = document.querySelector('.profile__specialization');
-let buttonClose = document.querySelector('.popup__button-close');
-let buttonSubmit = document.querySelector('.popup__button-submit');
+// --- ФУНКЦИЯ Открытие формы ---
 let modalName = document.querySelector('.popup__input_item_name');
 let modalSpecial = document.querySelector('.popup__input_item_specialization');
-
-if (profileEdit) {
-  profileEdit.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    profileModal.classList.remove('popup_hidden');
-    modalName.value = profileName.textContent;
-    modalSpecial.value = profileSpecial.textContent;
-  });
-  buttonClose.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    profileModal.classList.add('popup_hidden');
-  });
+let profileName = document.querySelector('.profile__name');
+let profileSpecial = document.querySelector('.profile__specialization');
+let profileModal = document.querySelector('.popup');
+function openModal() {
+  modalName.value = profileName.textContent;
+  modalSpecial.value = profileSpecial.textContent;
+  profileModal.classList.remove('popup_hidden');
+  modalName.focus();
 }
 
-if (buttonSubmit) {
-  buttonSubmit.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    profileModal.classList.add('popup_hidden');
-    profileName.textContent = modalName.value;
-    profileSpecial.textContent = modalSpecial.value;
-  });
+// --- ФУНКЦИЯ Закрытие формы ---
+function closeModal() {
+  profileModal.classList.add('popup_hidden');
 }
+
+// --- ФУНКЦИЯ Отправка формы ---
+function formSubmitHandler(evt) {
+  evt.preventDefault();
+  profileName.textContent = modalName.value;
+  profileSpecial.textContent = modalSpecial.value;
+  closeModal();
+}
+
+
+let profileEdit = document.querySelector('.profile__button-edit');
+profileEdit.addEventListener('click', openModal);
+
+let buttonClose = document.querySelector('.popup__button-close');
+buttonClose.addEventListener('click', closeModal);
+
+let formProfile = document.querySelector('.popup__body');
+formProfile.addEventListener('submit', formSubmitHandler);

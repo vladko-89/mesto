@@ -12,104 +12,111 @@
 <body class="page">
   <div class="container">
     <header class="header">
-      <img src="./image/logo.svg" alt="Логотип Mesto Russia" class="logo logo_place_header">
+      <img src="./image/logo.svg" alt="Логотип Mesto Russia" class="logo">
     </header>
     <main class="main-index">
       <section class="profile">
-        <div class="flex-wrapper">
+        <div class="profile__flex-wrapper">
           <img src="./image/Avatar.png" alt="Аватар пользователя" class="profile__avatar">
           <div>
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <a href="#" class="profile__link-edit" aria-label="Редактировать профиль">
-                <img src="./image/Vector.svg" alt="" class="profile__vector">
-              </a>
+              <button class="profile__button-edit" type="button" aria-label="Редактировать профиль">
+                <img src="./image/Vector.svg" alt="Иконка" class="profile__vector">
+              </button>
             </div>
             <p class="profile__specialization">Исследователь океана</p>
           </div>
         </div>
-        <a href="" class="profile__link-new-card" aria-label="Добавить новую карточку"></a>
+        <button class="profile__button-new-card" type="button" aria-label="Добавить новую карточку"></button>
       </section>
       <section class="grid-container" aria-label="Блок с карточками">
         <ul class="cards">
           <li class="cards__item">
-            <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаевск" class="cards__image">
-            <div class="cards__container">
-              <h2 class="cards__title">Карачаевск</h2>
-              <a href="#" class="cards__like">
-                <img src="./image/heart.svg" alt="" class="cards__img-like">
-              </a>
-            </div>
+            <article class="card">
+              <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаевск" class="card__image">
+              <div class="card__container">
+                <h2 class="card__title">Карачаевск</h2>
+                <button class="card__like" type="submit" aria-label="Кнопка like">
+                </button>
+              </div>
+            </article>
           </li>
           <li class="cards__item">
-            <img src="./image/elbrus.jpg" alt="Изображение места Гора Эльбрус" class="cards__image">
-            <div class="cards__container">
-              <h2 class="cards__title">Гора Эльбрус</h2>
-              <a href="#" class="cards__like">
-                <img src="./image/heart.svg" alt="" class="cards__img-like">
-              </a>
-            </div>
+            <article class="card">
+              <img src="./image/elbrus.jpg" alt="Изображение места Гора Эльбрус" class="card__image">
+              <div class="card__container">
+                <h2 class="card__title">Гора Эльбрус</h2>
+                <button class="card__like" type="submit" aria-label="Кнопка like">
+                </button>
+              </div>
+            </article>
           </li>
           <li class="cards__item">
-            <img src="./image/dombai.jpg" alt="Изображение места Домбай" class="cards__image">
-            <div class="cards__container">
-              <h2 class="cards__title">Домбай</h2>
-              <a href="#" class="cards__like">
-                <img src="./image/heart.svg" alt="" class="cards__img-like">
-              </a>
-            </div>
+            <article class="card">
+              <img src="./image/dombai.jpg" alt="Изображение места Домбай" class="card__image">
+              <div class="card__container">
+                <h2 class="card__title">Домбай</h2>
+                <button class="card__like" type="submit" aria-label="Кнопка like">
+                </button>
+              </div>
+            </article>
           </li>
           <li class="cards__item">
-            <img src="./image/elbrus.jpg" alt="Изображение места Гора Эльбрус" class="cards__image">
-            <div class="cards__container">
-              <h2 class="cards__title">Гора Эльбрус</h2>
-              <a href="#" class="cards__like">
-                <img src="./image/heart.svg" alt="" class="cards__img-like">
-              </a>
-            </div>
+            <article class="card">
+              <img src="./image/elbrus.jpg" alt="Изображение места Гора Эльбрус" class="card__image">
+              <div class="card__container">
+                <h2 class="card__title">Гора Эльбрус</h2>
+                <button class="card__like" type="submit" aria-label="Кнопка like">
+                </button>
+              </div>
+            </article>
           </li>
           <li class="cards__item">
-            <img src="./image/dombai.jpg" alt="Изображение места Домбай" class="cards__image">
-            <div class="cards__container">
-              <h2 class="cards__title">Домбай</h2>
-              <a href="#" class="cards__like">
-                <img src="./image/heart.svg" alt="" class="cards__img-like">
-              </a>
-            </div>
+            <article class="card">
+              <img src="./image/dombai.jpg" alt="Изображение места Домбай" class="card__image">
+              <div class="card__container">
+                <h2 class="card__title">Домбай</h2>
+                <button class="card__like" type="submit" aria-label="Кнопка like">
+                </button>
+              </div>
+            </article>
           </li>
           <li class="cards__item">
-            <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаево-Черкесск" class="cards__image">
-            <div class="cards__container">
-              <h2 class="cards__title">Карачаево-Черкессия</h2>
-              <a href="#" class="cards__like">
-                <img src="./image/heart.svg" alt="" class="cards__img-like">
-              </a>
-            </div>
+            <article class="card">
+              <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаево-Черкесск" class="card__image">
+              <div class="card__container">
+                <h2 class="card__title">Карачаево-Черкессия</h2>
+                <button class="card__like" type="submit" aria-label="Кнопка like">
+                </button>
+              </div>
+            </article>
           </li>
         </ul>
       </section>
-      <div class="popup popup_hidden">
-        <div class="popup__overflow"></div>
-        <form action="http://echo.htmlacademy.ru" method="post" class="popup__body">
-          <fieldset class="popup__content">Редактировать профиль
-            <ul class="popup__list">
-              <li class="popup__item">
-                <input type="text" name="name" class="popup__input popup__input_item_name">
-              </li>
-              <li class="popup__item">
-                <input type="text" name="specialization" class="popup__input popup__input_item_specialization">
-
-              </li>
-            </ul>
-          </fieldset>
-          <button type="submit" class="popup__button-submit">Сохранить</button>
-          <button class="popup__button-close" aria-label="кнопка Закрыть"></button>
-        </form>
-      </div>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-      </footer>
     </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup popup_hidden">
+      <div class="popup__overlay"></div>
+      <form class="popup__body">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <ul class="popup__list">
+          <li class="popup__item">
+            <input class="popup__input popup__input_item_name" type="text" name="name" required placeholder="Ваше имя">
+          </li>
+          <li class="popup__item">
+            <input class="popup__input popup__input_item_specialization" type="text" name="specialization" required
+              placeholder="Профессия">
+
+          </li>
+        </ul>
+        <button type="submit" class="popup__button-submit">Сохранить</button>
+        <button type="button" class="popup__button-close" aria-label="кнопка Закрыть"></button>
+      </form>
+    </div>
+
   </div>
   <script src="./js/script.js"></script>
 </body>

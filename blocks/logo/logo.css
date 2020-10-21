@@ -3,3 +3,9 @@
   width: 16.09%;
   max-height: 33.5px;
 }
+
+@media screen and (max-width: 400px) {
+  .logo {
+    min-width: 103px;
+  }
+}
