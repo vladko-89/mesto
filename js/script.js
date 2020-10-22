@@ -33,3 +33,11 @@ buttonClose.addEventListener('click', closeModal);
 
 let formProfile = document.querySelector('.popup__body');
 formProfile.addEventListener('submit', formSubmitHandler);
+
+// --- Закрытие модального окна по ESC ---
+window.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 27) {
+    evt.preventDefault();
+    profileModal.classList.add('popup_hidden');
+  }
+})

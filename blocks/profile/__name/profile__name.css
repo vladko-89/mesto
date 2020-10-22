@@ -1,6 +1,7 @@
 .profile__name {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
+  max-width: 340px;
   font-size: 42px;
   font-weight: 500;
   line-height: 3.5rem;
@@ -12,6 +13,7 @@
 
 @media screen and (max-width: 400px) {
   .profile__name {
+    max-width: 250px;
     margin-left: 3px;
     font-size: 27px;
   }

@@ -18,6 +18,7 @@
   height: 4.5px;
   background-color: #ffffff;
   transform: rotate(45deg);
+  transition: background-color 0.5s, linear, 0.5s;
 }
 
 .popup__button-close::before {

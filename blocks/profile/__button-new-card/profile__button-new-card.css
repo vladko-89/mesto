@@ -8,6 +8,7 @@
   border: 2px solid #ffffff;
   border-radius: 2px;
   box-sizing: border-box;
+  transition: border-color 0.5s, linear, 0.5s;
 }
 
 .profile__button-new-card::before,
@@ -19,6 +20,7 @@
   width: 22px;
   height: 2.5px;
   background-color: #ffffff;
+  transition: background-color 0.5s, linear, 0.5s;
 }
 
 .profile__button-new-card::after {
@@ -41,7 +43,7 @@
 
 @media screen and (max-width: 750px) {
   .profile__button-new-card {
-    width: 100%;
+    width: 88.12%;
   }
   .profile__button-new-card::before,
   .profile__button-new-card::after {

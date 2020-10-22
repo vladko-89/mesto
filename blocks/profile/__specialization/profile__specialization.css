@@ -1,9 +1,13 @@
 .profile__specialization {
   margin: 0;
+  max-width: 300px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.87px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 750px) {
@@ -15,6 +19,7 @@
 
 @media screen and (max-width: 400px) {
   .profile__specialization {
+    max-width: 200px;
     font-size: 14px;
     line-height: 14px;
   }
