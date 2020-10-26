@@ -1,9 +1,11 @@
 // --- ФУНКЦИЯ Открытие формы ---
-let modalName = document.querySelector('.popup__input_item_name');
-let modalSpecial = document.querySelector('.popup__input_item_specialization');
+let profileModal = document.querySelector('.popup');
+let modalName = profileModal.querySelector('.popup__input_item_name');
+let modalSpecial = profileModal.querySelector('.popup__input_item_specialization');
 let profileName = document.querySelector('.profile__name');
 let profileSpecial = document.querySelector('.profile__specialization');
-let profileModal = document.querySelector('.popup');
+
+
 function openModal() {
   modalName.value = profileName.textContent;
   modalSpecial.value = profileSpecial.textContent;
@@ -38,6 +40,6 @@ formProfile.addEventListener('submit', formSubmitHandler);
 window.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 27) {
     evt.preventDefault();
-    profileModal.classList.add('popup_hidden');
+    closeModal();
   }
 })
