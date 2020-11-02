@@ -1,45 +1,65 @@
 // --- ФУНКЦИЯ Открытие формы ---
-let profileModal = document.querySelector('.popup');
-let modalName = profileModal.querySelector('.popup__input_item_name');
-let modalSpecial = profileModal.querySelector('.popup__input_item_specialization');
+let modalWindow = document.querySelector('.popup');
+let modalProfileName = modalWindow.querySelector('.popup__input_item_name');
+let modalProfileSpecial = modalWindow.querySelector('.popup__input_item_specialization');
 let profileName = document.querySelector('.profile__name');
 let profileSpecial = document.querySelector('.profile__specialization');
 
-
 function openModal() {
-  modalName.value = profileName.textContent;
-  modalSpecial.value = profileSpecial.textContent;
-  profileModal.classList.remove('popup_hidden');
-  modalName.focus();
+  modalProfileName.value = profileName.textContent;
+  modalProfileSpecial.value = profileSpecial.textContent;
+  modalProfileName.focus();
+  modalWindow.classList.add('popup_show');
+  popupSlice();
 }
 
 // --- ФУНКЦИЯ Закрытие формы ---
 function closeModal() {
-  profileModal.classList.add('popup_hidden');
+  popupSlice()
+  modalWindow.classList.remove('popup_show');
 }
 
 // --- ФУНКЦИЯ Отправка формы ---
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  profileName.textContent = modalName.value;
-  profileSpecial.textContent = modalSpecial.value;
+  profileName.textContent = modalProfileName.value;
+  profileSpecial.textContent = modalProfileSpecial.value;
   closeModal();
 }
 
+// --- ФУНКЦИЯ плавного появления модального окна  ---
+let modalProfile = document.querySelector('.popup__body');
 
-let profileEdit = document.querySelector('.profile__button-edit');
-profileEdit.addEventListener('click', openModal);
-
-let buttonClose = document.querySelector('.popup__button-close');
-buttonClose.addEventListener('click', closeModal);
-
-let formProfile = document.querySelector('.popup__body');
-formProfile.addEventListener('submit', formSubmitHandler);
+function popupSlice() {
+  modalProfile.classList.toggle('popup__body_slice');
+}
 
 // --- Закрытие модального окна по ESC ---
-window.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 27) {
-    evt.preventDefault();
+
+const closeESC = key => {
+  if (modalWindow.classList.contains('popup_show')) {
+    if (key.keyCode === 27) {
+      key.preventDefault();
+      closeModal();
+    }
+  }
+}
+
+// ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
+let profileEditButton = document.querySelector('.profile__button-edit');
+profileEditButton.addEventListener('click', openModal);
+
+let modalCloseButton = document.querySelector('.popup__button-close');
+modalCloseButton.addEventListener('click', closeModal);
+
+modalProfile.addEventListener('submit', formSubmitHandler);
+
+
+window.addEventListener('keydown', closeESC);
+
+function modalClickHandler(event) {
+  if (event.target.classList.contains('popup')) {
     closeModal();
   }
-})
+}
+window.addEventListener('click', modalClickHandler);

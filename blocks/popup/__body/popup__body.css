@@ -1,11 +1,13 @@
 .popup__body {
   position: relative;
   z-index: 20;
+  transform: translateY(-300%);
   padding: 36px;
   width: 430px;
   background-color: #ffffff;
   border-radius: 10px;
   box-sizing: border-box;
+  transition: transform 1s linear 0.1s;
 }
 
 @media screen and (max-width: 590px) {
@@ -13,4 +15,8 @@
     padding: 25px 22px;
     width: 282px;
   }
+}
+
+.popup__body_slice {
+  transform: translateY(0);
 }
