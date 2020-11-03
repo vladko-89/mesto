@@ -99,25 +99,45 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <div class="popup">
-      <form class="popup__body" action="http://echo.htmlacademy.ru" method="post" name="profile-form">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <ul class="popup__list">
-          <li class="popup__item">
-            <input class="popup__input popup__input_item_name" type="text" name="name" required placeholder="Ваше имя">
-          </li>
-          <li class="popup__item">
-            <input class="popup__input popup__input_item_specialization" type="text" name="specialization" required
-              placeholder="Профессия">
+      <div class="popup__body">
+        <form class="popup__profile form form_closed" action="http://echo.htmlacademy.ru" method="post"
+          name="profile-form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <ul class="popup__list">
+            <li class="popup__item">
+              <input class="popup__input popup__input_item_name" type="text" name="name" required
+                placeholder="Ваше имя">
+            </li>
+            <li class="popup__item">
+              <input class="popup__input popup__input_item_specialization" type="text" name="specialization" required
+                placeholder="Профессия">
 
-          </li>
-        </ul>
-        <button type="submit" class="popup__button-submit">Сохранить</button>
+            </li>
+          </ul>
+          <button type="submit" class="popup__button-submit">Сохранить</button>
+        </form>
+        <form class="popup__new-card form form_closed" action="http://echo.htmlacademy.ru" method="post"
+          name="new-card-form">
+          <h2 class="popup__title">Новое место</h2>
+          <ul class="popup__list">
+            <li class="popup__item">
+              <input class="popup__input form popup__input_item_title" type="text" name="title" required
+                placeholder="Название">
+            </li>
+            <li class="popup__item">
+              <input class="popup__input popup__input_item_path" type="text" name="path-image" required
+                placeholder="Ссылка на картинку">
+
+            </li>
+          </ul>
+          <button type="submit" class="popup__button-submit">Создать</button>
+        </form>
         <button type="button" class="popup__button-close" aria-label="кнопка Закрыть"></button>
-      </form>
+      </div>
     </div>
 
   </div>
-  <template id="card">
+  <template id="card-tamplate">
     <li class="cards__item">
       <article class="card">
         <img class="card__image">
