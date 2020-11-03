@@ -45,6 +45,12 @@ const closeESC = key => {
   }
 }
 
+function modalClickHandler(event) {
+  if (event.target.classList.contains('popup')) {
+    closeModal();
+  }
+}
+
 // ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
 let profileEditButton = document.querySelector('.profile__button-edit');
 profileEditButton.addEventListener('click', openModal);
@@ -57,9 +63,4 @@ modalProfile.addEventListener('submit', formSubmitHandler);
 
 window.addEventListener('keydown', closeESC);
 
-function modalClickHandler(event) {
-  if (event.target.classList.contains('popup')) {
-    closeModal();
-  }
-}
 window.addEventListener('click', modalClickHandler);
