@@ -38,8 +38,8 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup popup_type_form">
-      <div class="popup__body popup__body_modal_form">
+    <div class="popup popup_type_profile">
+      <div class="popup__body popup__body_modal_profile">
         <form class="popup__profile form form_closed" action="http://echo.htmlacademy.ru" method="post"
           name="profile-form">
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -56,6 +56,12 @@
           </ul>
           <button type="submit" class="popup__button-submit">Сохранить</button>
         </form>
+        <button type="button" class="popup__button-close popup__button-close_modal_profile"
+          aria-label="кнопка Закрыть"></button>
+      </div>
+    </div>
+    <div class="popup popup_type_new-card">
+      <div class="popup__body popup__body_modal_new-card">
         <form class="popup__new-card form form_closed" action="http://echo.htmlacademy.ru" method="post"
           name="new-card-form">
           <h2 class="popup__title">Новое место</h2>
@@ -72,7 +78,7 @@
           </ul>
           <button type="submit" class="popup__button-submit">Создать</button>
         </form>
-        <button type="button" class="popup__button-close popup__button-close_modal_form"
+        <button type="button" class="popup__button-close popup__button-close_modal_new-card"
           aria-label="кнопка Закрыть"></button>
       </div>
     </div>
@@ -92,7 +98,7 @@
     <li class="cards__item">
       <article class="card">
         <img src="#" class="card__image" alt="Изображение карточки">
-        <button class="card__delite" type="button" aria-label="Кнопка удалить"></button>
+        <button class="card__delete" type="button" aria-label="Кнопка удалить"></button>
         <div class="card__container">
           <h2 class="card__title"></h2>
           <button class="card__like" type="button" aria-label="Кнопка like">
