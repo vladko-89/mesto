@@ -30,6 +30,7 @@
 .profile__button-new-card:hover,
 .profile__button-new-card:focus {
   border-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
   outline: none;
 }
 

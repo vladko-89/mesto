@@ -11,6 +11,7 @@
 .profile__button-edit:hover,
 .profile__button-edit:focus {
   border-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 }
 
 .profile__button-edit:hover.profile__vector > path {

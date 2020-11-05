@@ -25,38 +25,42 @@ const initialCards = [
   }
 ];
 
-// --- ФУНКЦИЯ плавного появления модального окна  ---
-const modalWindow = document.querySelector('.popup');
-let modalProfile = document.querySelector('.popup__body');
 
-function popupSlice() {
-  modalProfile.classList.toggle('popup__body_slice');
+// --- ФУНКЦИЯ плавного появления модального окна  ---
+const modalForm = document.querySelector('.popup_type_form');
+const modalImage = document.querySelector('.popup_type_image');
+const modalBodyForm = document.querySelector('.popup__body_modal_form');
+const modalBodyImage = document.querySelector('.popup__body_modal_image');
+
+const popupSlice = (body) => {
+  body.classList.toggle('popup__body_slice');
 }
+
+
 
 
 // --- ФУНКЦИЯ Открытие формы ---
 
-function openModal() {
-  modalWindow.classList.add('popup_show');
-  popupSlice();
+const openModal = (popup, body) => {
+  popup.classList.add('popup_show');
+  popupSlice(body);
 }
 
 
 // --- ФУНКЦИЯ Загрузка формы профиля ---
-const formProfile = modalWindow.querySelector('.popup__profile');
-const modalProfileName = modalWindow.querySelector('.popup__input_item_name');
-const modalProfileSpecial = modalWindow.querySelector('.popup__input_item_specialization');
+const formProfile = modalForm.querySelector('.popup__profile');
+const modalBodyFormName = modalForm.querySelector('.popup__input_item_name');
+const modalBodyFormSpecial = modalForm.querySelector('.popup__input_item_specialization');
 const profileName = document.querySelector('.profile__name');
 const profileSpecial = document.querySelector('.profile__specialization');
 
-function loadProfile() {
+const loadProfile = () => {
   closeForm();
-  //formNewCard.classList.remove('form_opened');
   formProfile.classList.add('form_opened');
-  modalProfileName.value = profileName.textContent;
-  modalProfileSpecial.value = profileSpecial.textContent;
-  modalProfileName.focus();
-  openModal();
+  modalBodyFormName.value = profileName.textContent;
+  modalBodyFormSpecial.value = profileSpecial.textContent;
+  modalBodyFormName.focus();
+  openModal(modalForm, modalBodyForm);
 }
 
 // --- ФУНКЦИЯ Закрываю все открытые формы ---
@@ -68,56 +72,91 @@ const closeForm = () => {
   });
 }
 
+// --- ФУНКЦИЯ Загрузка формы создания карточки ---
+const formNewCard = modalForm.querySelector('.popup__new-card');
+const modalCardName = modalForm.querySelector('.popup__input_item_title');
+const modalCardPath = modalForm.querySelector('.popup__input_item_path');
 
-
-// --- ФУНКЦИЯ Загрузка формы создания карты ---
-const formNewCard = modalWindow.querySelector('.popup__new-card');
-const modalCardName = modalWindow.querySelector('.popup__input_item_title');
-const modalCardPath = modalWindow.querySelector('.popup__input_item_path');
-
-function loadNewCard() {
+const loadNewCard = () => {
   closeForm();
-  //formProfile.classList.remove('form_opened');
+  modalCardName.value = '';
+  modalCardPath.value = '';
   formNewCard.classList.add('form_opened');
   modalCardName.focus();
-  openModal();
+  openModal(modalForm, modalBodyForm);
 }
 
 // --- ФУНКЦИЯ Закрытие формы ---
-function closeModal() {
-  popupSlice()
-  modalWindow.classList.remove('popup_show');
+function closeModal(popup, body) {
+  popupSlice(body);
+  popup.classList.remove('popup_show');
 }
 
 
 
 
 // --- ФУНКЦИЯ Отправка формы ---
-function formSubmitHandler(evt) {
+const formSubmitHandler = (evt) => {
   evt.preventDefault();
-  profileName.textContent = modalProfileName.value;
-  profileSpecial.textContent = modalProfileSpecial.value;
-  closeModal();
+  profileName.textContent = modalBodyFormName.value;
+  profileSpecial.textContent = modalBodyFormSpecial.value;
+  closeModal(modalForm, modalBodyForm);
 }
 
+// --- ФУНКЦИЯ Генерация карточки ---
+const cardTitle = document.querySelector('.popup__input_item_title');
+const cardLink = document.querySelector('.popup__input_item_path');
+const cardsList = document.querySelector('.cards');
 
 
-// --- Закрытие модального окна по ESC ---
+const createCard = (title, path) => {
+  const cardTemplate = document.querySelector('#card-template').content;
+  const cardElement = cardTemplate.cloneNode(true);
+  cardElement.querySelector('.card__title').textContent = title;
+  cardElement.querySelector('.card__image').src = path;
+  // СОБЫТИЕ ЛАЙК
+  cardElement.querySelector('.card__like').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like_active');
+  });
+  // СОБЫТИЕ УДАЛЕНИЕ
+  cardElement.querySelector('.card__delite').addEventListener('click', (evt) => {
+    const card = evt.target.closest('.cards__item');
+    card.remove();
+  });
 
-const closeESC = key => {
-  if (modalWindow.classList.contains('popup_show')) {
-    if (key.keyCode === 27) {
-      key.preventDefault();
-      closeModal();
-    }
-  }
+  const modalCardImage = document.querySelector('.popup__card-image');
+  const modalSign = document.querySelector('.popup__sign');
+
+  cardElement.querySelector('.card__image').addEventListener('click', (evt) => {
+    modalCardImage.src = path;
+    modalSign.textContent = title;
+
+    openModal(modalImage, modalBodyImage);
+  });
+  cardsList.prepend(cardElement);
 }
 
-function modalClickHandler(event) {
-  if (event.target.classList.contains('popup')) {
-    closeModal();
-  }
+// --- ФУНКЦИЯ Добавления новой карточки ---
+const addCard = (evt) => {
+  evt.preventDefault();
+  let title = cardTitle.value;
+  let path = cardLink.value;
+  createCard(title, path);
+  closeModal(modalForm, modalBodyForm);
 }
+
+// --- ФУНКЦИЯ Загрузки карточек при открытии страницы ---
+const loadCards = () => {
+  initialCards.forEach((item) => {
+    let title = item.name;
+    let path = item.link;
+    createCard(title, path);
+  });
+}
+
+loadCards();
+
+const modalBody = document.querySelector('.popup__body');
 
 // ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
 const profileEditButton = document.querySelector('.profile__button-edit');
@@ -126,12 +165,12 @@ profileEditButton.addEventListener('click', loadProfile);
 const buttonCreateCard = document.querySelector('.profile__button-new-card');
 buttonCreateCard.addEventListener('click', loadNewCard);
 
-const modalCloseButton = document.querySelector('.popup__button-close');
-modalCloseButton.addEventListener('click', closeModal);
+const modalCloseButton = document.querySelector('.popup__button-close_modal_form');
+modalCloseButton.addEventListener('click', () => closeModal(modalForm, modalBodyForm));
 
-modalProfile.addEventListener('submit', formSubmitHandler);
+const modalCloseImage = document.querySelector('.popup__button-close_modal_image');
+modalCloseImage.addEventListener('click', () => closeModal(modalImage, modalBodyImage));
 
+formProfile.addEventListener('submit', formSubmitHandler);
 
-window.addEventListener('keydown', closeESC);
-
-window.addEventListener('click', modalClickHandler);
+formNewCard.addEventListener('submit', addCard);

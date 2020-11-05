@@ -10,8 +10,7 @@
   transition: background-image 1s, linear, 0.5s;
 }
 
-.card__like:hover,
-.card__like:focus {
+.card__like:hover {
   background-image: url(../../../image/heart_transparent.svg);
   cursor: pointer;
   outline: none;

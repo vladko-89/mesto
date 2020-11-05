@@ -32,74 +32,14 @@
       </section>
       <section class="grid-container" aria-label="Блок с карточками">
         <ul class="cards">
-          <li class="cards__item">
-            <article class="card">
-              <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаевск" class="card__image">
-              <div class="card__container">
-                <h2 class="card__title">Карачаевск</h2>
-                <button class="card__like" type="submit" aria-label="Кнопка like">
-                </button>
-              </div>
-            </article>
-          </li>
-          <li class="cards__item">
-            <article class="card">
-              <img src="./image/elbrus.jpg" alt="Изображение места Гора Эльбрус" class="card__image">
-              <div class="card__container">
-                <h2 class="card__title">Гора Эльбрус</h2>
-                <button class="card__like" type="submit" aria-label="Кнопка like">
-                </button>
-              </div>
-            </article>
-          </li>
-          <li class="cards__item">
-            <article class="card">
-              <img src="./image/dombai.jpg" alt="Изображение места Домбай" class="card__image">
-              <div class="card__container">
-                <h2 class="card__title">Домбай</h2>
-                <button class="card__like" type="submit" aria-label="Кнопка like">
-                </button>
-              </div>
-            </article>
-          </li>
-          <li class="cards__item">
-            <article class="card">
-              <img src="./image/elbrus.jpg" alt="Изображение места Гора Эльбрус" class="card__image">
-              <div class="card__container">
-                <h2 class="card__title">Гора Эльбрус</h2>
-                <button class="card__like" type="submit" aria-label="Кнопка like">
-                </button>
-              </div>
-            </article>
-          </li>
-          <li class="cards__item">
-            <article class="card">
-              <img src="./image/dombai.jpg" alt="Изображение места Домбай" class="card__image">
-              <div class="card__container">
-                <h2 class="card__title">Домбай</h2>
-                <button class="card__like" type="submit" aria-label="Кнопка like">
-                </button>
-              </div>
-            </article>
-          </li>
-          <li class="cards__item">
-            <article class="card">
-              <img src="./image/karachaevsk.jpg" alt="Изображение места Карачаево-Черкесск" class="card__image">
-              <div class="card__container">
-                <h2 class="card__title">Карачаево-Черкессия</h2>
-                <button class="card__like" type="submit" aria-label="Кнопка like">
-                </button>
-              </div>
-            </article>
-          </li>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
-      <div class="popup__body">
+    <div class="popup popup_type_form">
+      <div class="popup__body popup__body_modal_form">
         <form class="popup__profile form form_closed" action="http://echo.htmlacademy.ru" method="post"
           name="profile-form">
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -121,7 +61,7 @@
           <h2 class="popup__title">Новое место</h2>
           <ul class="popup__list">
             <li class="popup__item">
-              <input class="popup__input form popup__input_item_title" type="text" name="title" required
+              <input class="popup__input popup__input_item_title" type="text" name="title" required
                 placeholder="Название">
             </li>
             <li class="popup__item">
@@ -132,15 +72,27 @@
           </ul>
           <button type="submit" class="popup__button-submit">Создать</button>
         </form>
-        <button type="button" class="popup__button-close" aria-label="кнопка Закрыть"></button>
+        <button type="button" class="popup__button-close popup__button-close_modal_form"
+          aria-label="кнопка Закрыть"></button>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__body popup__body_modal_image">
+        <figure class="popup__image">
+          <img src="#" alt="Большое изображение карточки" class="popup__card-image">
+          <figcaption class="popup__sign"></figcaption>
+        </figure>
+        <button type="button" class="popup__button-close popup__button-close_modal_image"
+          aria-label="кнопка Закрыть"></button>
       </div>
     </div>
 
   </div>
-  <template id="card-tamplate">
+  <template id="card-template">
     <li class="cards__item">
       <article class="card">
-        <img class="card__image">
+        <img src="#" class="card__image" alt="Изображение карточки">
+        <button class="card__delite" type="button" aria-label="Кнопка удалить"></button>
         <div class="card__container">
           <h2 class="card__title"></h2>
           <button class="card__like" type="button" aria-label="Кнопка like">
