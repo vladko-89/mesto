@@ -65,25 +65,16 @@ const loadProfile = () => {
   openModal(modalProfile, modalBodyProfile);
 };
 
-// --- ФУНКЦИЯ Закрываю все открытые формы ---
-/*const forms = document.querySelectorAll('.form');
-
-const closeForm = () => {
-  forms.forEach((item) => {
-    item.classList.remove('form_opened');
-  });
-};*/
-
 // --- ФУНКЦИЯ Загрузка формы создания карточки ---
 const formNewCard = modalNewCard.querySelector('.popup__new-card');
 const modalCardName = modalNewCard.querySelector('.popup__input_item_title');
 const modalCardPath = modalNewCard.querySelector('.popup__input_item_path');
 
 const loadNewCard = () => {
-  //closeForm();
+
   modalCardName.value = '';
   modalCardPath.value = '';
-  //formNewCard.classList.add('form_opened');
+
   modalCardName.focus();
   openModal(modalNewCard, modalBodyNewCard);
 };
@@ -99,6 +90,7 @@ const handleFormSubmit = (evt) => {
   evt.preventDefault();
   profileName.textContent = modalBodyProfileName.value;
   profileSpecial.textContent = modalBodyProfileSpecial.value;
+
   closeModal(modalProfile, modalBodyProfile);
 };
 
@@ -111,8 +103,10 @@ const createCard = (object) => {
   const cardTemplate = document.querySelector('#card-template').content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector('.card__image')
+
   cardElement.querySelector('.card__title').textContent = object.name;
   cardImage.src = object.link;
+
   // СОБЫТИЕ ЛАЙК
   cardElement.querySelector('.card__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('card__like_active');
@@ -123,7 +117,7 @@ const createCard = (object) => {
     card.remove();
   });
 
-
+  //СОБЫТИЕ ОТКРЫТИЕ БОЛЬШОЙ КАРТОЧКИ
   cardImage.addEventListener('click', () => {
     modalCardImage.src = object.link;
     modalSign.textContent = object.name;
@@ -137,6 +131,7 @@ const createCard = (object) => {
 // --- ФУНКЦИЯ Добавления новой карточки ---
 const addCard = (evt) => {
   evt.preventDefault();
+
   const object = {
     name: cardTitle.value,
     link: cardLink.value

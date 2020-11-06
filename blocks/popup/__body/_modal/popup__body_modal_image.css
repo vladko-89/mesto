@@ -7,3 +7,9 @@
   border-radius: 0;
   background-color: transparent;
 }
+
+@media screen and (max-width: 590px) {
+  .popup__body_modal_image {
+    min-width: 75vw;
+  }
+}
