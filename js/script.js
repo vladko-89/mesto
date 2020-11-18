@@ -41,11 +41,32 @@ const slidePopup = (body) => {
   body.classList.toggle('popup__body_slice');
 };
 
+// --- ФУНКЦИЯ Закрытие формы ---
+function closeModal(popup, body) {
+  slidePopup(body);
+  window.removeEventListener('keydown', closeModalEvent);
+  window.removeEventListener('click', closeModalEvent);
+  popup.classList.remove('popup_show');
+}
+
+// --- ФУНКЦИЯ Закрытие по событию  ---
+
+const closeModalEvent = (evt) => {
+  const showPopup = document.querySelector('.popup_show');
+  const showBody = showPopup.querySelector('.popup__body');
+  if (evt.key === 'Escape' || evt.target.classList.contains('popup_show')) {
+    evt.preventDefault();
+    closeModal(showPopup, showBody);
+  }
+};
+
 // --- ФУНКЦИЯ Открытие формы ---
 
 const openModal = (popup, body) => {
   popup.classList.add('popup_show');
   slidePopup(body);
+  window.addEventListener('keydown', closeModalEvent);
+  window.addEventListener('click', closeModalEvent);
 };
 
 
@@ -57,10 +78,10 @@ const profileName = document.querySelector('.profile__name');
 const profileSpecial = document.querySelector('.profile__specialization');
 
 const loadProfile = () => {
-  //closeForm();
-  //formProfile.classList.add('form_opened');
+
   modalBodyProfileName.value = profileName.textContent;
   modalBodyProfileSpecial.value = profileSpecial.textContent;
+
   modalBodyProfileName.focus();
   openModal(modalProfile, modalBodyProfile);
 };
@@ -79,11 +100,7 @@ const loadNewCard = () => {
   openModal(modalNewCard, modalBodyNewCard);
 };
 
-// --- ФУНКЦИЯ Закрытие формы ---
-function closeModal(popup, body) {
-  slidePopup(body);
-  popup.classList.remove('popup_show');
-}
+
 
 // --- ФУНКЦИЯ Отправка формы ---
 const handleFormSubmit = (evt) => {
@@ -99,13 +116,13 @@ const cardTitle = document.querySelector('.popup__input_item_title');
 const cardLink = document.querySelector('.popup__input_item_path');
 const cardsList = document.querySelector('.cards');
 
-const createCard = (object) => {
+const createCard = (cardData) => {
   const cardTemplate = document.querySelector('#card-template').content;
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector('.card__image')
+  const cardImage = cardElement.querySelector('.card__image');
 
-  cardElement.querySelector('.card__title').textContent = object.name;
-  cardImage.src = object.link;
+  cardElement.querySelector('.card__title').textContent = cardData.name;
+  cardImage.src = cardData.link;
 
   // СОБЫТИЕ ЛАЙК
   cardElement.querySelector('.card__like').addEventListener('click', function (evt) {
@@ -119,8 +136,8 @@ const createCard = (object) => {
 
   //СОБЫТИЕ ОТКРЫТИЕ БОЛЬШОЙ КАРТОЧКИ
   cardImage.addEventListener('click', () => {
-    modalCardImage.src = object.link;
-    modalSign.textContent = object.name;
+    modalCardImage.src = cardData.link;
+    modalSign.textContent = cardData.name;
 
     openModal(modalImage, modalBodyImage);
   });
@@ -132,22 +149,24 @@ const createCard = (object) => {
 const addCard = (evt) => {
   evt.preventDefault();
 
-  const object = {
+  const cardData = {
     name: cardTitle.value,
     link: cardLink.value
-  }
+  };
 
-  cardsList.prepend(createCard(object));
+  cardsList.prepend(createCard(cardData));
 
   closeModal(modalNewCard, modalBodyNewCard);
 };
 
 // --- ФУНКЦИЯ Загрузки карточек при открытии страницы ---
 const loadCards = () => {
+
   initialCards.forEach((item) => {
     const newCard = createCard(item);
     cardsList.append(newCard);
   });
+
 };
 
 loadCards();

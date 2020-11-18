@@ -40,17 +40,17 @@
     </footer>
     <div class="popup popup_type_profile">
       <div class="popup__body popup__body_modal_profile">
-        <form class="popup__profile form form_closed" action="http://echo.htmlacademy.ru" method="post"
+        <form class="popup__profile form form_closed novalidate" action="http://echo.htmlacademy.ru" method="post"
           name="profile-form">
           <h2 class="popup__title">Редактировать профиль</h2>
           <ul class="popup__list">
             <li class="popup__item">
-              <input class="popup__input popup__input_item_name" type="text" name="name" required
-                placeholder="Ваше имя">
+              <input class="popup__input popup__input_item_name" type="text" name="name" required placeholder="Ваше имя"
+                minlength="2" maxlength="40">
             </li>
             <li class="popup__item">
               <input class="popup__input popup__input_item_specialization" type="text" name="specialization" required
-                placeholder="Профессия">
+                placeholder="Профессия" minlength="2" maxlength="200">
 
             </li>
           </ul>
@@ -62,16 +62,16 @@
     </div>
     <div class="popup popup_type_new-card">
       <div class="popup__body popup__body_modal_new-card">
-        <form class="popup__new-card form form_closed" action="http://echo.htmlacademy.ru" method="post"
+        <form class="popup__new-card form form_closed" novalidate action="http://echo.htmlacademy.ru" method="post"
           name="new-card-form">
           <h2 class="popup__title">Новое место</h2>
           <ul class="popup__list">
             <li class="popup__item">
               <input class="popup__input popup__input_item_title" type="text" name="title" required
-                placeholder="Название">
+                placeholder="Название" minlength="2" maxlength="30">
             </li>
             <li class="popup__item">
-              <input class="popup__input popup__input_item_path" type="text" name="path-image" required
+              <input class="popup__input popup__input_item_path" type="url" name="path-image" required
                 placeholder="Ссылка на картинку">
 
             </li>
