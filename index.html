@@ -45,13 +45,14 @@
           <h2 class="popup__title">Редактировать профиль</h2>
           <ul class="popup__list">
             <li class="popup__item">
-              <input class="popup__input popup__input_item_name" type="text" name="name" required placeholder="Ваше имя"
-                minlength="2" maxlength="40">
+              <input class="popup__input popup__input_item_name" id="input_name" type="text" name="name" required
+                placeholder="Ваше имя" minlength="2" maxlength="40">
+              <span class="popup__error popup__span_error" id="input_name-error"></span>
             </li>
             <li class="popup__item">
-              <input class="popup__input popup__input_item_specialization" type="text" name="specialization" required
-                placeholder="Профессия" minlength="2" maxlength="200">
-
+              <input class="popup__input popup__input_item_specialization" type="text" name="specialization"
+                id="input_pass" required placeholder="Профессия" minlength="2" maxlength="200">
+              <span class="popup__error popup__span_error" id="input_pass-error"></span>
             </li>
           </ul>
           <button type="submit" class="popup__button-submit">Сохранить</button>
@@ -67,13 +68,14 @@
           <h2 class="popup__title">Новое место</h2>
           <ul class="popup__list">
             <li class="popup__item">
-              <input class="popup__input popup__input_item_title" type="text" name="title" required
+              <input class="popup__input popup__input_item_title" type="text" name="title" id="input_title" required
                 placeholder="Название" minlength="2" maxlength="30">
+              <span class="popup__error popup__span_error" id="input_title-error">ERROR</span>
             </li>
             <li class="popup__item">
-              <input class="popup__input popup__input_item_path" type="url" name="path-image" required
+              <input class="popup__input popup__input_item_path" type="url" id="input_link" name="path-image" required
                 placeholder="Ссылка на картинку">
-
+              <span class="popup__error popup__span_error" id="input_link-error"></span>
             </li>
           </ul>
           <button type="submit" class="popup__button-submit">Создать</button>
@@ -108,6 +110,7 @@
     </li>
   </template>
   <script src="./js/script.js"></script>
+  <script src="./js/validate.js"></script>
 </body>
 
 </html>

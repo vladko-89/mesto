@@ -63,6 +63,7 @@ const closeModalEvent = (evt) => {
 // --- ФУНКЦИЯ Открытие формы ---
 
 const openModal = (popup, body) => {
+  blockSubmitButton(popup);
   popup.classList.add('popup_show');
   slidePopup(body);
   window.addEventListener('keydown', closeModalEvent);
