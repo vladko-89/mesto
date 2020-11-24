@@ -2,7 +2,7 @@
 const modalCardImage = document.querySelector('.popup__card-image');
 const modalSign = document.querySelector('.popup__sign');
 
-const showPopup = document.querySelector('.popup_show');
+const showModal = document.querySelector('.popup_show');
 
 const modalProfile = document.querySelector('.popup_type_profile');
 const modalNewCard = document.querySelector('.popup_type_new-card');
@@ -169,15 +169,10 @@ loadCards();
 // ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
 
 profileEditButton.addEventListener('click', openEditProfileModal);
-
-
 buttonCreateCard.addEventListener('click', openAddCardModal);
+
 modalCloseProfile.addEventListener('click', () => closeModal(modalProfile, modalBodyProfile));
-
-
 modalCloseNewCard.addEventListener('click', () => closeModal(modalNewCard, modalBodyNewCard));
-
-
 modalCloseImage.addEventListener('click', () => closeModal(modalImage, modalBodyImage));
 
 formProfile.addEventListener('submit', handleFormSubmit);
