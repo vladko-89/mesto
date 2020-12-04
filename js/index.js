@@ -1,6 +1,6 @@
 import { initialCards } from './initial-card.js';
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import { Card } from './card.js';
+import { FormValidator } from './formValidator.js';
 import { validationConfig } from './config.js';
 
 
