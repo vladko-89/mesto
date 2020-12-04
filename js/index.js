@@ -1,8 +1,14 @@
+import { Card } from './card.js';
+import { FormValidator } from './formValidator.js';
+import { validationConfig } from './config.js';
+
+
+
 // --- БЛОК ГЛОБАЛЬНЫХ ПЕРЕМЕННЫХ ---
 const modalCardImage = document.querySelector('.popup__card-image');
 const modalSign = document.querySelector('.popup__sign');
 
-const showModal = document.querySelector('.popup_show');
+
 
 const modalProfile = document.querySelector('.popup_type_profile');
 const modalNewCard = document.querySelector('.popup_type_new-card');
@@ -32,10 +38,12 @@ const modalCloseNewCard = document.querySelector('.popup__button-close_modal_new
 const modalCloseImage = document.querySelector('.popup__button-close_modal_image');
 // --- 
 
+const formUserProfile = new FormValidator(formProfile, validationConfig);
+formUserProfile.enableValidation();
+const formAddCard = new FormValidator(formNewCard, validationConfig);
+formAddCard.enableValidation();
 
 // --- ФУНКЦИЯ плавного появления модального окна  ---
-
-
 const slidePopup = (body) => {
   body.classList.toggle('popup__body_slice');
 };
@@ -49,7 +57,6 @@ function closeModal(popup, body) {
 }
 
 // --- ФУНКЦИЯ Закрытие по событию  ---
-
 const closeModalEvent = (evt) => {
   const showPopup = document.querySelector('.popup_show');
   const showBody = showPopup.querySelector('.popup__body');
@@ -61,7 +68,6 @@ const closeModalEvent = (evt) => {
 };
 
 // --- ФУНКЦИЯ Открытие формы ---
-
 const openModal = (popup, body) => {
 
   popup.classList.add('popup_show');
@@ -69,7 +75,6 @@ const openModal = (popup, body) => {
   window.addEventListener('keydown', closeModalEvent);
   window.addEventListener('click', closeModalEvent);
 };
-
 
 // --- ФУНКЦИЯ Загрузка формы профиля ---
 const openEditProfileModal = () => {
@@ -79,7 +84,7 @@ const openEditProfileModal = () => {
 
   modalBodyProfileName.focus();
 
-  blockSubmitButton(modalProfile);
+  formUserProfile._blockSubmitButton();
 
   openModal(modalProfile, modalBodyProfile);
 };
@@ -92,12 +97,10 @@ const openAddCardModal = () => {
 
   modalCardName.focus();
 
-  blockSubmitButton(modalNewCard);
+  formAddCard._blockSubmitButton();
 
   openModal(modalNewCard, modalBodyNewCard);
 };
-
-
 
 // --- ФУНКЦИЯ Отправка формы ---
 const handleFormSubmit = (evt) => {
@@ -108,39 +111,16 @@ const handleFormSubmit = (evt) => {
   closeModal(modalProfile, modalBodyProfile);
 };
 
-// --- ФУНКЦИЯ Генерация карточки ---
-const createCard = (cardData) => {
-  const cardTemplate = document.querySelector('#card-template').content;
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector('.card__image');
+// Открываем большую карточку
+const openBigCard = (name, link) => {
+  modalCardImage.src = link;
+  modalCardImage.alt = `Карточка ${name}`;
+  modalSign.textContent = name;
 
-  cardElement.querySelector('.card__title').textContent = cardData.name;
-  cardImage.src = cardData.link;
-  cardImage.alt = `Карточка ${cardData.name}`;
+  openModal(modalImage, modalBodyImage);
+}
 
-  // СОБЫТИЕ ЛАЙК
-  cardElement.querySelector('.card__like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('card__like_active');
-  });
-  // СОБЫТИЕ УДАЛЕНИЕ
-  cardElement.querySelector('.card__delete').addEventListener('click', (evt) => {
-    const card = evt.target.closest('.cards__item');
-    card.remove();
-  });
 
-  //СОБЫТИЕ ОТКРЫТИЕ БОЛЬШОЙ КАРТОЧКИ
-  cardImage.addEventListener('click', () => {
-    modalCardImage.src = cardData.link;
-    modalCardImage.alt = `Карточка ${cardData.name}`;
-    modalSign.textContent = cardData.name;
-
-    openModal(modalImage, modalBodyImage);
-  });
-
-  return cardElement;
-};
-
-// --- ФУНКЦИЯ Добавления новой карточки ---
 const addCard = (evt) => {
   evt.preventDefault();
 
@@ -149,22 +129,24 @@ const addCard = (evt) => {
     link: cardLink.value
   };
 
-  cardsList.prepend(createCard(cardData));
+  const card = new Card(cardData, '.card-template', openBigCard);
+  const cardElement = card.generateCard();
+
+  cardsList.prepend(cardElement);
 
   closeModal(modalNewCard, modalBodyNewCard);
 };
 
-// --- ФУНКЦИЯ Загрузки карточек при открытии страницы ---
-const loadCards = () => {
+initialCards.forEach((item) => {
+  const card = new Card(item, '.card-template', openBigCard);
 
-  initialCards.forEach((item) => {
-    const newCard = createCard(item);
-    cardsList.append(newCard);
-  });
 
-};
+  const cardElement = card.generateCard();
 
-loadCards();
+  cardsList.append(cardElement);
+});
+
+
 
 // ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
 
