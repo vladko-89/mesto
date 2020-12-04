@@ -14,16 +14,16 @@ export class Card {
 
     return cardElement;
   }
-
+  //Ставим/снимаем Лайк
   _likeCard() {
     this._element.querySelector('.card__like').classList.toggle('card__like_active');
   }
-
+  // Удаляем карточку
   _deleteCard() {
     this._element.remove();
   }
 
-
+  // Вешаем обработчики
   _setEventListeners() {
     this._element.querySelector('.card__like').addEventListener('click', () => {
       this._likeCard();
@@ -35,13 +35,15 @@ export class Card {
       this._openBigCard(this._title, this._link);
     });
   }
-
+  // Создаем карточку
   generateCard() {
     this._element = this._getTemplate();
+    const title = this._element.querySelector('.card__title');
+    const image = this._element.querySelector('.card__image');
 
-    this._element.querySelector('.card__title').textContent = this._title;
-    this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__image').alt = `Карточка ${this._title}`;
+    title.textContent = this._title;
+    image.src = this._link;
+    image.alt = `Карточка ${this._title}`;
 
     this._setEventListeners();
 

@@ -48,14 +48,6 @@ export class FormValidator {
     }
   }
 
-  _blockSubmitButton() {
-    const buttonSubmit = this.form.querySelector(validationConfig.submitButtonSelector);
-
-    if (buttonSubmit) {
-      buttonSubmit.classList.add(validationConfig.inactiveButtonClass);
-    }
-  }
-
   _setEventListeners() {
     const inputList = Array.from(this.form.querySelectorAll(this._config.inputSelector));
     const buttonItem = this.form.querySelector(this._config.submitButtonSelector);

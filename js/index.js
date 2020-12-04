@@ -1,5 +1,6 @@
-import { Card } from './card.js';
-import { FormValidator } from './formValidator.js';
+import { initialCards } from './initial-card.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
 import { validationConfig } from './config.js';
 
 
@@ -25,7 +26,6 @@ const profileSpecial = document.querySelector('.profile__specialization');
 
 const formNewCard = modalNewCard.querySelector('.popup__new-card');
 const modalCardName = modalNewCard.querySelector('.popup__input_item_title');
-const modalCardPath = modalNewCard.querySelector('.popup__input_item_path');
 
 const cardTitle = document.querySelector('.popup__input_item_title');
 const cardLink = document.querySelector('.popup__input_item_path');
@@ -51,8 +51,8 @@ const slidePopup = (body) => {
 // --- ФУНКЦИЯ Закрытие формы ---
 function closeModal(popup, body) {
   slidePopup(body);
-  window.removeEventListener('keydown', closeModalEvent);
-  window.removeEventListener('click', closeModalEvent);
+  document.removeEventListener('keydown', closeModalEvent);
+  document.removeEventListener('click', closeModalEvent);
   popup.classList.remove('popup_show');
 }
 
@@ -72,9 +72,17 @@ const openModal = (popup, body) => {
 
   popup.classList.add('popup_show');
   slidePopup(body);
-  window.addEventListener('keydown', closeModalEvent);
-  window.addEventListener('click', closeModalEvent);
+  document.addEventListener('keydown', closeModalEvent);
+  document.addEventListener('click', closeModalEvent);
 };
+
+const blockSubmitButton = ((form) => {
+  const buttonSubmit = form.querySelector(validationConfig.submitButtonSelector);
+
+  if (buttonSubmit) {
+    buttonSubmit.classList.add(validationConfig.inactiveButtonClass);
+  }
+});
 
 // --- ФУНКЦИЯ Загрузка формы профиля ---
 const openEditProfileModal = () => {
@@ -84,7 +92,7 @@ const openEditProfileModal = () => {
 
   modalBodyProfileName.focus();
 
-  formUserProfile._blockSubmitButton();
+  blockSubmitButton(formProfile);
 
   openModal(modalProfile, modalBodyProfile);
 };
@@ -92,12 +100,11 @@ const openEditProfileModal = () => {
 // --- ФУНКЦИЯ Загрузка формы создания карточки ---
 const openAddCardModal = () => {
 
-  modalCardName.value = '';
-  modalCardPath.value = '';
+  formNewCard.reset();
 
   modalCardName.focus();
 
-  formAddCard._blockSubmitButton();
+  blockSubmitButton(formNewCard);
 
   openModal(modalNewCard, modalBodyNewCard);
 };
