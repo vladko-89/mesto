@@ -5,24 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./src/pages/index.css">
   <title>MEsto</title>
 </head>
 
 <body class="page">
   <div class="container">
     <header class="header">
-      <img src="./src/image/logo.svg" alt="Логотип Mesto Russia" class="logo">
+      <img src="<%=require('./image/logo.svg')%>" alt="Логотип Mesto Russia" class="logo">
     </header>
     <main class="main-index">
       <section class="profile">
         <div class="profile__flex-wrapper">
-          <img src="./src/image/Avatar.png" alt="Аватар пользователя" class="profile__avatar">
+          <img src="<%=require('./image/Avatar.png')%>" alt="Аватар пользователя" class="profile__avatar">
           <div>
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button class="profile__button-edit" type="button" aria-label="Редактировать профиль">
-                <img src="./src/image/Vector.svg" alt="Иконка" class="profile__vector">
+                <img src="<%=require('./image/Vector.svg')%>" alt="Иконка" class="profile__vector">
               </button>
             </div>
             <p class="profile__specialization">Исследователь океана</p>
@@ -109,7 +108,6 @@
       </article>
     </li>
   </template>
-  <script type="module" src="./src/pages/index.js"></script>
 </body>
 
 </html>

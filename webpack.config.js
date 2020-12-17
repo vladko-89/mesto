@@ -11,6 +11,7 @@ module.exports = {
     publicPath: ''
   },
   mode: 'development',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, '/.dist'),
     compress: true,
@@ -48,7 +49,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin()
