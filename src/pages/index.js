@@ -1,4 +1,3 @@
-//import './index.css';
 import { initialCards } from '../utils/initial-card.js';
 import { Card } from '../components/Card.js';
 import Section from '../components/Section.js';
@@ -12,9 +11,6 @@ import {
 
 
 // --- БЛОК ГЛОБАЛЬНЫХ ПЕРЕМЕННЫХ ---
-//const modalCardImage = document.querySelector('.popup__card-image');
-//const modalSign = document.querySelector('.popup__sign');
-
 const modalNewCard = document.querySelector('.popup_type_new-card');
 const modalImage = document.querySelector('.popup_type_image');
 
@@ -121,8 +117,4 @@ initializationCards.renderer();
 
 profileEditButton.addEventListener('click', openEditProfileModal);
 buttonCreateCard.addEventListener('click', openAddCardModal);
-
-//formProfile.addEventListener('submit', handleFormSubmit);
-
-//formNewCard.addEventListener('submit', addCard);
 // ---
