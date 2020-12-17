@@ -1,4 +1,4 @@
-import './index.css';
+//import './index.css';
 import { initialCards } from '../utils/initial-card.js';
 import { Card } from '../components/Card.js';
 import Section from '../components/Section.js';
