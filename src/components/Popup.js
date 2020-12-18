@@ -14,7 +14,7 @@ export default class Popup {
   }
 
   // Закрытие модального окна
-  closePopup() {
+  close() {
     this._slideUpPopup();
     document.removeEventListener('keydown', this._handleEventClose);
     document.removeEventListener('click', this._handleEventClose);
@@ -40,6 +40,6 @@ export default class Popup {
 
   // Установка слушателей
   setEventListener() {
-    this.popup.querySelector('.popup__button-close').addEventListener('click', this.closePopup.bind(this));
+    this.popup.querySelector('.popup__button-close').addEventListener('click', this.close.bind(this));
   }
 }

@@ -73,7 +73,7 @@ const handleFormSubmit = (item) => {
   const { user, specialization } = item;
   userInfo.setUserInfo(user, specialization);
 
-  popupProfile.closePopup();
+  popupProfile.close();
 };
 
 const popupProfile = new PopupWithForm(modalProfile, handleFormSubmit);
@@ -93,7 +93,7 @@ const addCard = (item) => {
 
   initializationCards.addItemHead(cardElement);
 
-  popupNewCard.closePopup();
+  popupNewCard.close();
 };
 
 const popupNewCard = new PopupWithForm(modalNewCard, addCard);
