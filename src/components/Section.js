@@ -5,11 +5,18 @@ export default class Section {
     this._container = containerSelector;
   }
 
+
   renderer() {
     this._renderedItems.forEach(item => this._renderer(item))
   }
 
+  // Добавить карточку в конец списка
   addItem(element) {
     this._container.append(element);
+  }
+
+  // Добавить карточку в начало списка
+  addItemHead(element) {
+    this._container.prepend(element);
   }
 }

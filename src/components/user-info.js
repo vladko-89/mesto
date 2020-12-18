@@ -2,19 +2,22 @@ import { profileName, profileSpecial, modalProfile } from '../utils/constants.js
 
 export default class UserInfo {
   constructor() {
-    this._name = modalProfile.querySelector('.popup__input_item_name');
-    this._special = modalProfile.querySelector('.popup__input_item_specialization');
+    this._modalProfile = document.querySelector('.popup_type_profile');
+    this._profileName = document.querySelector('.profile__name');
+    this._profileSpecial = document.querySelector('.profile__specialization');
+
   }
 
   getUserInfo() {
-    this._name.value = profileName.textContent;
-    this._special.value = profileSpecial.textContent;
+    return {
+      name: this._profileName.textContent,
+      special: this._profileSpecial.textContent
+    }
 
-    this._name.focus();
   }
 
   setUserInfo(name, special) {
-    profileName.textContent = name;
-    profileSpecial.textContent = special;
+    this._profileName.textContent = name;
+    this._profileSpecial.textContent = special;
   }
 }

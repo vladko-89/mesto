@@ -46,9 +46,11 @@ export class FormValidator {
   // Переключатель состояния кнопки "Отправить"
   _toggleButtonState(inputList, buttonItem) {
     if (this._hasValidInput(inputList)) {
+      buttonItem.disabled = true;
       buttonItem.classList.add(this._config.inactiveButtonClass);
     }
     else {
+      buttonItem.disabled = false;
       buttonItem.classList.remove(this._config.inactiveButtonClass);
     }
   }
@@ -68,6 +70,15 @@ export class FormValidator {
         this._toggleButtonState(inputList, buttonItem);
       });
     });
+  }
+
+  blockSubmitButton() {
+    const buttonSubmit = this.form.querySelector(validationConfig.submitButtonSelector);
+
+    if (buttonSubmit) {
+      buttonSubmit.classList.add(validationConfig.inactiveButtonClass);
+      buttonSubmit.disabled = true;
+    }
   }
 
   // 

@@ -33,17 +33,6 @@ formAddCard.enableValidation();
 
 const userInfo = new UserInfo();
 
-const blockSubmitButton = ((form) => {
-  const buttonSubmit = form.querySelector(validationConfig.submitButtonSelector);
-
-  if (buttonSubmit) {
-    buttonSubmit.classList.add(validationConfig.inactiveButtonClass);
-  }
-});
-
-
-
-
 
 const popupBigCard = new PopupWithImage(modalImage);
 popupBigCard.setEventListener();
@@ -51,9 +40,18 @@ popupBigCard.setEventListener();
 // --- ФУНКЦИЯ Загрузка формы профиля ---
 const openEditProfileModal = () => {
 
-  userInfo.getUserInfo();
+  const dataForm = userInfo.getUserInfo();
 
-  blockSubmitButton(formProfile);
+  const special = modalProfile.querySelector('.popup__input_item_specialization');
+  const name = modalProfile.querySelector('.popup__input_item_name');
+
+
+  name.value = dataForm.name;
+  special.value = dataForm.special;
+  name.focus();
+
+
+  formUserProfile.blockSubmitButton();
 
   popupProfile.openPopup();
 };
@@ -61,11 +59,11 @@ const openEditProfileModal = () => {
 // --- ФУНКЦИЯ Загрузка формы создания карточки ---
 const openAddCardModal = () => {
 
-  formNewCard.reset();
+  //formNewCard.reset();
 
   modalCardName.focus();
 
-  blockSubmitButton(formNewCard);
+  formAddCard.blockSubmitButton();
 
   popupNewCard.openPopup();
 };
@@ -93,10 +91,9 @@ const addCard = (item) => {
   const card = new Card(item, '.card-template', openBigCard);
   const cardElement = card.generateCard();
 
-  containerSelector.prepend(cardElement);
+  initializationCards.addItemHead(cardElement);
 
   popupNewCard.closePopup();
-  //closeModal(modalNewCard, modalBodyNewCard);
 };
 
 const popupNewCard = new PopupWithForm(modalNewCard, addCard);
