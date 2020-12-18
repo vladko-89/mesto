@@ -7,8 +7,8 @@ export default class PopupWithImage extends Popup {
     this._modalSign = popup.querySelector('.popup__sign');
   }
 
-  openPopup(name, link) {
-    super.openPopup();
+  open(name, link) {
+    super.open();
     this._modalCardImage.src = link;
     this._modalCardImage.alt = `Карточка ${name}`;
     this._modalSign.textContent = name;

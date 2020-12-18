@@ -53,7 +53,7 @@ const openEditProfileModal = () => {
 
   formUserProfile.blockSubmitButton();
 
-  popupProfile.openPopup();
+  popupProfile.open();
 };
 
 // --- ФУНКЦИЯ Загрузка формы создания карточки ---
@@ -65,7 +65,7 @@ const openAddCardModal = () => {
 
   formAddCard.blockSubmitButton();
 
-  popupNewCard.openPopup();
+  popupNewCard.open();
 };
 
 // --- ФУНКЦИЯ Отправка формы ---
@@ -82,7 +82,7 @@ popupProfile.setEventListener();
 // --- ФУНКЦИЯ Открываем большую карточку
 const openBigCard = (name, link) => {
 
-  popupBigCard.openPopup(name, link);
+  popupBigCard.open(name, link);
 }
 
 // --- ФУНКЦИЯ Добавление новой карточки

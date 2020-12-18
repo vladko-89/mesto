@@ -26,12 +26,12 @@ export default class Popup {
 
     if (evt.key === 'Escape' || evt.target.classList.contains('popup_show')) {
       evt.preventDefault();
-      this.closePopup();
+      this.close();
     }
   };
 
   // Открытие модального окна
-  openPopup() {
+  open() {
     this.popup.classList.add('popup_show');
     this._slideDownPopup();
     document.addEventListener('keydown', this._handleEventClose);
