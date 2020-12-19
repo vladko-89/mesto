@@ -5,6 +5,7 @@ export class FormValidator {
   constructor(form, config) {
     this.form = form;
     this._config = config;
+    this._buttonSubmit = this.form.querySelector(this._config.submitButtonSelector);
   }
 
   // Включаем стилизацию ошибок на форме
@@ -58,26 +59,25 @@ export class FormValidator {
   // Вешаем обработчики событий
   _setEventListeners() {
     const inputList = Array.from(this.form.querySelectorAll(this._config.inputSelector));
-    const buttonItem = this.form.querySelector(this._config.submitButtonSelector);
 
-    this._toggleButtonState(inputList, buttonItem);
+    this._toggleButtonState(inputList, this._buttonSubmit);
 
     inputList.forEach((inputItem) => {
       inputItem.addEventListener('input', () => {
 
         this._isValid(inputItem);
 
-        this._toggleButtonState(inputList, buttonItem);
+        this._toggleButtonState(inputList, this._buttonSubmit);
       });
     });
   }
 
+  // Блокируем кнопку отправки формы при открытии
   blockSubmitButton() {
-    const buttonSubmit = this.form.querySelector(validationConfig.submitButtonSelector);
 
-    if (buttonSubmit) {
-      buttonSubmit.classList.add(validationConfig.inactiveButtonClass);
-      buttonSubmit.disabled = true;
+    if (this._buttonSubmit) {
+      this._buttonSubmit.classList.add(this._config.inactiveButtonClass);
+      this._buttonSubmit.disabled = true;
     }
   }
 

@@ -8,7 +8,7 @@ import PopupWithImage from '../components/popup-with-image.js';
 import PopupWithForm from '../components/popup-with-form.js';
 import { FormValidator } from '../components/FormValidator.js';
 import {
-  validationConfig, containerSelector, modalProfile
+  validationConfig, containerSelector, modalProfile, nameInput, specialInput
 } from '../utils/constants.js';
 
 
@@ -42,24 +42,17 @@ const openEditProfileModal = () => {
 
   const dataForm = userInfo.getUserInfo();
 
-  const special = modalProfile.querySelector('.popup__input_item_specialization');
-  const name = modalProfile.querySelector('.popup__input_item_name');
-
-
-  name.value = dataForm.name;
-  special.value = dataForm.special;
-  name.focus();
+  nameInput.value = dataForm.name;
+  specialInput.value = dataForm.special;
 
 
   formUserProfile.blockSubmitButton();
-
   popupProfile.open();
+  nameInput.focus();
 };
 
 // --- ФУНКЦИЯ Загрузка формы создания карточки ---
 const openAddCardModal = () => {
-
-  //formNewCard.reset();
 
   modalCardName.focus();
 

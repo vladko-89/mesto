@@ -14,6 +14,8 @@ export const containerSelector = document.querySelector('.cards');
 export const modalProfile = document.querySelector('.popup_type_profile');
 export const profileName = document.querySelector('.profile__name');
 export const profileSpecial = document.querySelector('.profile__specialization');
+export const specialInput = modalProfile.querySelector('.popup__input_item_specialization');
+export const nameInput = modalProfile.querySelector('.popup__input_item_name');
 export const myProfileForm = {
   name: modalProfile.querySelector('.popup__input_item_name'),
   special: modalProfile.querySelector('.popup__input_item_specialization')
