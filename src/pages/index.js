@@ -110,7 +110,7 @@ const initializationCards = new Section({
   }
 }, containerSelector);
 
-initializationCards.rendererItems();
+initializationCards.renderItems();
 
 // ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
 
