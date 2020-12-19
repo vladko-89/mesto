@@ -1,24 +1,24 @@
 export default class Popup {
   constructor(popup) {
-    this.popup = popup;
+    this._popup = popup;
     this._handleEventClose = this._handleEventClose.bind(this);
   }
 
   // Анимация открытия и закрытия модального окна
   _slideDownPopup() {
-    this.popup.querySelector('.popup__body').classList.add('popup__body_slice');
+    this._popup.querySelector('.popup__body').classList.add('popup__body_slice');
   }
 
   _slideUpPopup() {
-    this.popup.querySelector('.popup__body').classList.remove('popup__body_slice');
+    this._popup.querySelector('.popup__body').classList.remove('popup__body_slice');
   }
 
   // Закрытие модального окна
   close() {
-    this._slideUpPopup();
+    this._popup.querySelector('.popup__body').classList.remove('popup__body_slice');
     document.removeEventListener('keydown', this._handleEventClose);
     document.removeEventListener('click', this._handleEventClose);
-    this.popup.classList.remove('popup_show');
+    this._popup.classList.remove('popup_show');
   }
 
   // Закрытие по событию 
@@ -32,14 +32,14 @@ export default class Popup {
 
   // Открытие модального окна
   open() {
-    this.popup.classList.add('popup_show');
-    this._slideDownPopup();
+    this._popup.classList.add('popup_show');
+    this._popup.querySelector('.popup__body').classList.add('popup__body_slice');
     document.addEventListener('keydown', this._handleEventClose);
     document.addEventListener('click', this._handleEventClose);
   }
 
   // Установка слушателей
-  setEventListener() {
-    this.popup.querySelector('.popup__button-close').addEventListener('click', this.close.bind(this));
+  setEventListeners() {
+    this._popup.querySelector('.popup__button-close').addEventListener('click', this.close.bind(this));
   }
 }

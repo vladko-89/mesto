@@ -35,7 +35,7 @@ const userInfo = new UserInfo();
 
 
 const popupBigCard = new PopupWithImage(modalImage);
-popupBigCard.setEventListener();
+popupBigCard.setEventListeners();
 
 // --- ФУНКЦИЯ Загрузка формы профиля ---
 const openEditProfileModal = () => {
@@ -77,7 +77,7 @@ const handleFormSubmit = (item) => {
 };
 
 const popupProfile = new PopupWithForm(modalProfile, handleFormSubmit);
-popupProfile.setEventListener();
+popupProfile.setEventListeners();
 
 // --- ФУНКЦИЯ Открываем большую карточку
 const openBigCard = (name, link) => {
@@ -97,7 +97,7 @@ const addCard = (item) => {
 };
 
 const popupNewCard = new PopupWithForm(modalNewCard, addCard);
-popupNewCard.setEventListener();
+popupNewCard.setEventListeners();
 
 // --- Отрисовываем карточки при загрузке страницы
 const initializationCards = new Section({
@@ -110,7 +110,7 @@ const initializationCards = new Section({
   }
 }, containerSelector);
 
-initializationCards.renderer();
+initializationCards.rendererItems();
 
 // ---БЛОК ОБРАБОТКИ СОБЫТИЙ ---
 

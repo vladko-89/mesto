@@ -6,7 +6,7 @@ export default class Section {
   }
 
 
-  renderer() {
+  rendererItems() {
     this._renderedItems.forEach(item => this._renderer(item))
   }
 
