@@ -5,6 +5,7 @@ export default class PopupWithForm extends Popup {
     super(popup);
     this._sendForm = sendForm;
     this._form = popup.querySelector('.form');
+    this._button = this._form.querySelector('.popup__button-submit');
   }
   setEventListeners() {
     super.setEventListeners();
@@ -28,3 +29,7 @@ export default class PopupWithForm extends Popup {
     this._form.reset();
   }
 }
+
+
+
+

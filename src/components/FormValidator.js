@@ -81,6 +81,33 @@ export class FormValidator {
     }
   }
 
+  // Меняем текст кнопки при запросе на сервер
+  modificationTextButton() {
+    if (this._buttonSubmit.textContent === 'Сохранить') {
+      return 'Сохранение...';
+    }
+    else if (this._buttonSubmit.textContent === 'Создать') {
+      return 'Создание...';
+    }
+    else if (this._buttonSubmit.textContent === 'Да') {
+      return 'Да...';
+    }
+    else { console.log('Не попал в проверку') }
+  }
+
+  // Возвращаем текст кнопки
+  backTextButton() {
+    if (this._buttonSubmit.textContent === 'Сохранение...') {
+      return 'Сохранить';
+    }
+    else if (this._buttonSubmit.textContent === 'Создание...') {
+      return 'Создать';
+    }
+    else {
+      return 'Да';
+    }
+  }
+
   // 
   enableValidation() {
 

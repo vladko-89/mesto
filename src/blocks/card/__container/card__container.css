@@ -1,5 +1,7 @@
 .card__container {
-  padding: 22px 15px 24px 21px;
+  height: 79px;
+  padding-left: 15px;
+  padding-right: 21px;
   display: flex;
   justify-content: space-between;
   align-items: center;

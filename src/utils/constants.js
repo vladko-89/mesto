@@ -16,6 +16,8 @@ export const profileName = document.querySelector('.profile__name');
 export const profileSpecial = document.querySelector('.profile__specialization');
 export const specialInput = modalProfile.querySelector('.popup__input_item_specialization');
 export const nameInput = modalProfile.querySelector('.popup__input_item_name');
+export const modalAvatar = document.querySelector('.popup_type_avatar');
+export const linkInput = modalAvatar.querySelector('.popup__input_item_path');
 export const myProfileForm = {
   name: modalProfile.querySelector('.popup__input_item_name'),
   special: modalProfile.querySelector('.popup__input_item_specialization')

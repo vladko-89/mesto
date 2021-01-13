@@ -10,6 +10,6 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
-  opacity: 0;
+  /*opacity: 0;*/
   transition: visibility 0.2s linear 0.5s, opacity 0.2s linear 0.5s;
 }
